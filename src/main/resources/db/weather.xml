@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+    <changeSet id="weather" author="mosmanis" context="1">
+        <createTable tableName="weather">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="caller_lat" type="DOUBLE"/>
+            <column name="caller_lon" type="DOUBLE"/>
+            <column name="actual_lat" type="DOUBLE"/>
+            <column name="actual_lon" type="DOUBLE"/>
+            <column name="temp" type="DOUBLE"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="source" type="VARCHAR(255)"/>
+            <column name="timestamp" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

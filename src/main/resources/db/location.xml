@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+    <changeSet id="location" author="mosmanis" context="1">
+        <createTable tableName="location">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ip" type="VARCHAR(255)"/>
+            <column name="lat" type="DOUBLE"/>
+            <column name="lon" type="DOUBLE"/>
+            <column name="source" type="VARCHAR(255)"/>
+            <column name="timestamp" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

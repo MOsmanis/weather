@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=db
+      - MYSQL_USER=mo
+      - MYSQL_PASSWORD=mo
+      - MYSQL_ROOT_PASSWORD=root
+
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+      - "5050:5050"
+    depends_on:
+      - mysql
+    restart: on-failure
