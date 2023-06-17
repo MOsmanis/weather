@@ -10,12 +10,14 @@ import mo.weather.mapper.OpenMeteoResponseMapper;
 import mo.weather.mapper.OpenWeatherMapResponseMapper;
 import mo.weather.mapper.WeatherBitResponseMapper;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -33,6 +35,7 @@ public class WeatherConfig {
     private String weatherBitApiKey;
 
     @Bean
+    @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
     public List<LocationClient> locationClients() {
         return Collections.synchronizedList(
             Arrays.asList(
@@ -54,6 +57,7 @@ public class WeatherConfig {
     }
 
     @Bean
+    @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
     public List<WeatherClient> weatherClients() {
         return Collections.synchronizedList(
             Arrays.asList(
